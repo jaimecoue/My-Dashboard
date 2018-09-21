@@ -1,0 +1,45 @@
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: $bgBody;
+  padding-top: 10%;
+
+
+.login-form {
+ 
+  text-align: center;
+  height: 100%;
+  width: 30%;
+  background: #fff;
+  padding: 2%;
+  border-radius: 1em;
+  border: $color-main 1px solid;
+
+  .login-title {
+    font-family: $font-family;
+    font-weight: $heading;
+    padding-bottom: 20px;
+  }
+
+
+  .username-input, .password-input {
+    padding: 15px 0px;
+    width: 100%;
+    font-family: $font-family;
+    font-size: 1em;
+    text-align: center;
+  
+  }
+
+  a {
+    font-family: $font-family;
+    text-decoration: none;
+    color: $darkText;
+
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+}
+}

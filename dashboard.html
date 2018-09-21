@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Demo Vue.js</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/todolist.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+  
+   
+</head>
+
+<body>
+  
+  <main>
+    <div class="sidebar" id="sidebar">
+      <!-- Components for Profile and Contextual Menu -->
+        <div id="profile">
+          <profile></profile>
+        </div>
+
+ 
+        <div id="dashmenu">
+          <dash-menu></dash-menu>
+        </div>
+
+        
+    </div>
+<!--
+    <nav class="navbar" id="navbar">
+      <div class="nav-greeting">
+        <strong><h1>What's on the agenda today, Johny?</h1></strong>
+    
+      </div>
+
+    
+    </nav> -->
+
+
+     
+    
+    <section class="page" id="page">
+      <div class="grid-container">
+
+        <div class="pie-container">
+
+ <div class="progressDiv">
+            <div class="statChartHolder">
+                <div class="progress-pie-chart" data-percent="67"><!--Pie Chart -->
+                    <div class="ppc-progress">
+                        <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                    <div class="pcc-percents-wrapper">
+                        <span>%</span>
+                    </div>
+                    </div>
+                </div><!--End Chart -->
+            </div>
+            <div class="statRightHolder">
+                <ul>
+                <li> <h3 class="blue">39.4k</h3> <span>Leads</span></li>
+                <li> <h3 class="purple">1.8k</h3> <span>Sales</span></li>
+                </ul>
+                
+                    <ul class="statsLeft">
+                    <li><h3 class="yellow">22%</h3> <span>RSA</span></li>
+                    <li><h3 class="red">37%</h3> <span>USA</span></li>
+                    </ul>
+                        <ul class="statsRight">
+                            <li><h3>18%</h3> <span>UK</span></li>
+                            <li><h3>23%</h3> <span>AUS</span></li>
+                        </ul>
+            </div>
+            
+        </div>
+
+</div>
+
+        <div class="todolist-container">
+
+           <div class="container-app">
+
+<div class="app" id="app">
+  <form class="form" v-on:submit="addTodo">
+    <input class="input form__input" v-model="inputVal"/>
+    <button class="btn form__submit-btn" type="submit">Add</button>
+  </form>
+  <transition-group tag="ol" name="list" class="todo-list">
+    <li
+      class="todo-list__item"
+      v-bind:class="{ complete: todo.complete }"
+      v-bind:key="index"
+      v-for="(todo, index) in filteredTodos">
+      <button
+        class="todo-list__item-content"
+        v-on:click="toggleTodo(todo)">
+        {{ todo.text }}
+      </button>
+      <button
+        class="btn todo-list__item-remove"
+        v-on:click="deleteTodo(index)">
+        <i class="fa" v-bind:class="[todo.complete ? 'fa-check' : 'fa-times']"></i>
+      </button>
+    </li>
+  </transition-group>
+  <div class="filters">
+    <button 
+      class="btn filters__btn filters__btn--all" 
+      v-on:click="filterTodos('all')">
+      All
+    </button>
+    <button 
+      class="btn filters__btn filters__btn--complete" 
+      v-on:click="filterTodos('complete')">
+      Complete
+    </button>
+    <button 
+      class="btn filters__btn filters__btn--incomplete" 
+      v-on:click="filterTodos('incomplete')">
+      Incomplete
+    </button>
+  </div>
+</div>
+</div>
+
+<div class="chart-container">
+  
+  <div id='myChart' style="width:98vw; padding-left: 10%; ">
+    
+  </div>
+</div>
+
+</div>
+</div>
+      
+      
+    </section>
+ </main>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+  <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+
+ <script src="js/time.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/profile.js"></script>
+  
+<script src="js/changetheme.js"></script>
+   <script src="js/maincharts.js"></script>
+  <script src="js/dashmenu.js"></script>
+  <script src="js/todolist.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+  <script src="js/workflow.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
+  
+
+</body>
+</html>

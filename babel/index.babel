@@ -1,0 +1,50 @@
+new Vue({
+  el: '#app',
+  data: {
+    tasks: [],
+    task: '',
+    date: {
+      dayNum: '',
+      month: '',
+      year: '',
+      dayName: ''
+    }
+  },
+  created: function() {
+    this.getCurrentDay()
+  },
+  methods: {
+    getCurrentDay: function() {
+      const today = new Date()
+      let dayName = moment(today).format('dddd')
+      
+      let [ monthDay, year ] = moment().format('ll').split(',')
+      let [ month, day ] = monthDay.split(' ')
+      
+      month = month.toUpperCase()
+      dayName = dayName.toUpperCase()
+      
+      this.date.dayNum = day
+      this.date.month = month
+      this.date.year = year
+      this.date.dayName = dayName
+    },
+    addTask: function() {
+      const inputTask = prompt('Añade una tarea')
+      if(inputTask) {
+        var objTask = {
+          name: inputTask,
+          state: true
+        }
+        this.tasks.unshift(objTask)
+      }
+    },
+    checkTask: function(e){
+      const taskElement = e.target.parentNode
+      taskElement.classList.toggle('checked')
+      console.log(taskElement)
+    }
+  },
+  computed: {
+  }
+})
